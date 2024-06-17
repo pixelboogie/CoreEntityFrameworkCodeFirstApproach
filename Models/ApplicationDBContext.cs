@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CoreEntityFrameworkCodeFirstApproach.Models
 {
@@ -8,9 +10,7 @@ namespace CoreEntityFrameworkCodeFirstApproach.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //base.OnConfiguring(optionsBuilder);
-            // She got server from SQL server manager???
-            optionsBuilder.UseSqlServer("Server=.;Database=CodeFirstDB;Integrated Securty=true TrustServerCertificate = true");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\ButtersDB;Database=CodeFirstDB;Integrated Security=true; TrustServerCertificate = true");
         }
     }
 }
